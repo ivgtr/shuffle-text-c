@@ -69,4 +69,4 @@ export default {
 ```
 
 ### License
-MIT © [ivgtr](http://ivgtr.me)
+MIT © [ivgtr](https://github.com/ivgtr)
