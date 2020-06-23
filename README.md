@@ -3,7 +3,7 @@
 
 ### これは何?
 ##### テキストをシャカシャカするやつです。
-現存するシャカシャカライブラリの挙動が好みじゃないので作りました
+
 
 ### デモ
 [demo](https://ivgtr.github.io/vue-shuffle-text/)	
@@ -38,7 +38,7 @@ export default {
   </div>
 </templeate>
 ```
-### 追加設定
+### 追加の設定
 ```javascript
 import { ShuffleText } from 'vue-shuffle-text'
 export default {
@@ -67,3 +67,6 @@ export default {
   </div>
 </templeate>
 ```
+
+### License
+MIT © [ivgtr](http://ivgtr.me)
