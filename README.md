@@ -4,7 +4,7 @@
 #### これは何?
 #### テキストをシャカシャカするやつです。
 
-###デモ
+### デモ
 [demo](https://ivgtr.github.io/vue-shuffle-text/)	
 
 ### インストール
