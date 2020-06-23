@@ -8,7 +8,7 @@
 <body>
    <div id="app">
     <p>
-      <vue-shuffle-text :original-text="msg" :time-out="time" :random-chars="random" />
+      <vue-shuffle-text :original-text="msg" :time-out="time" :random-chars="random" :empty-char="empty" />
     </p>
      
    </div>
@@ -22,7 +22,8 @@
        data: {
          msg: "Welcome Hello world",
          time: 20,
-         random: '-'
+         random: 'ABCDEFGHIJKLMNOPQRSTUVWXYG01234566789',
+         empty: '-'
        }
      })
    </script>
