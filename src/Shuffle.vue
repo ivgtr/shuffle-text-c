@@ -1,7 +1,6 @@
 <template>
   <span>
     {{ outputText }}
-    a
   </span>
 </template>
 
