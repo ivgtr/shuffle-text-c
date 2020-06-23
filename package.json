@@ -1,6 +1,6 @@
 {
   "name": "vue-shuffle-text",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "vue shuffle-text plugins.",
   "main": "dist/index.js",
   "module": "dist",
