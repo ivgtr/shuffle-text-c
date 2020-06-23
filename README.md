@@ -48,7 +48,7 @@ export default {
   data(){
     return{
       text: 'welcome', // 表示するテキストを指定
-      time: 20、 // テキストを表示する速度を調整
+      time: 20, // テキストを表示する速度を調整
       random: 'ABCDEFGHIJKLMNOPQRSTUVWXYG01234566789', // シャカシャカする文字を指定
       empty: '-' // シャカシャカする前に表示する文字を指定
     }
