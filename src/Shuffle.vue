@@ -1,6 +1,7 @@
 <template>
   <span>
     {{ outputText }}
+    a
   </span>
 </template>
 
@@ -9,7 +10,7 @@ export default {
   props: {
     originalText: {
       type: String,
-      default: undefined
+      default: ''
     },
     randomChars: {
       type: String,
@@ -18,21 +19,27 @@ export default {
     timeOut: {
       type: Number,
       default: 20
+    },
+    emptyChar: {
+      type: String,
+      default: '-'
     }
   },
   data() {
     return {
       text: '',
       outputText: '',
-      originalLength: this.originalText.length,
+      originalLength: 0,
       length: 0,
       shuffleLength: 0,
-      startTime: undefined
+      startTime: 0
     }
   },
-  mounted() {
-    this.startTime = new Date().getTime()
-    this.shuffle()
+  async mounted() {
+    this.startTime = await new Date().getTime()
+    this.originalLength = this.originalText.length
+    await this.init()
+    this.update()
   },
   methods: {
     init() {
@@ -40,16 +47,15 @@ export default {
       this.length = 0
       this.shuffleLength = 0
     },
-    shuffle() {
-      this.init()
-      requestAnimationFrame(this.update().bind(this))
-    },
     update() {
       if (this.length > this.originalLength) {
         return
       }
       const currentTime = new Date().getTime()
+
       if (currentTime - this.startTime > this.timeOut) {
+        this.startTime = currentTime
+
         if (this.text.length < this.originalLength) {
           this.text += this.emptyChar
         }
@@ -67,15 +73,15 @@ export default {
             this.text.slice(this.length)
           this.length++
         }
-      } else {
-        return
       }
       this.outputText = this.text
-      requestAnimationFrame(this.update())
+      window.requestAnimationFrame(() => {
+        this.update()
+      })
     },
-    generateRandomTex(length) {
+    generateRandomText(l) {
       let randomText = ''
-      for (let i = 0; i < length; i++) {
+      for (let i = 0; i < l; i++) {
         randomText += this.randomChars[
           Math.floor(Math.random() * this.randomChars.length)
         ]
