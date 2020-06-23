@@ -23,6 +23,7 @@
     "babel-minify": "^0.5.1",
     "eslint": "^6.8.0",
     "eslint-config-metamo": "0.0.8",
+    "husky": "^4.2.5",
     "jest": "^24.9.0",
     "prettier": "^2.0.5",
     "prettier-config-metamo": "0.0.3",
@@ -51,5 +52,10 @@
   "homepage": "https://github.com/ivgtr/vue-shuffle-text#readme",
   "dependencies": {
     "package-lock-only": "0.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint"
+    }
   }
 }
