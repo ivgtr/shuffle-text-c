@@ -1,72 +1,82 @@
-# vue-shuffle-text
-[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+# shuffle-text-c
+ 
+テキストをシャカシャカさせるコンポーネント 
+とても簡単に使うことができます
+```html
+<script
+  src="https://unpkg.com/shuffle-text-c/dist/esm/shuffle-text.js"
+  type="module"
+></script>
 
-### これは何?
-##### テキストをシャカシャカするやつです。
-
+<shuffle-text text="Hello world!" />
+```
 
 ### デモ
-[demo](https://ivgtr.github.io/vue-shuffle-text/)	
-
-### インストール
-
-```
-npm i vue-shuffle-text
-```
-```
-yarn add vue-shuffle-text
-```
+[demo](https://ivgtr.github.io/shuffle-text-c/)	
 
 ### 使い方
+#### Script tag
+- `<script src="https://unpkg.com/shuffle-text-c/dist/esm/shuffle-text.js" type="module"></script>` このようなscriptタグを設置します
+- 任意の場所で`<shuffle-text />` を呼び出してください
+
+#### Vue
+- `npm i shuffle-text-c` を実行してください
+- 次のようにloaderを呼び出してください
 ```javascript
-import { ShuffleText } from 'vue-shuffle-text'
+import { applyPolyfills, defineCustomElements } from 'shuffle-text-c/loader'
+
+applyPolyfills().then(() => {
+  defineCustomElements()
+})
+
 export default {
-  components: {
-    ShuffleText
-  },
-  data(){
-    return{
-      text: 'welcome' // 表示するテキストを指定
-    }
-  }
+  name: "App"
 }
 ```
 ```html
 <templeate>
   <div id="app">
-    <shuffle-text :original-text="text" />
-  </div>
-</templeate>
-```
-### 追加の設定
-```javascript
-import { ShuffleText } from 'vue-shuffle-text'
-export default {
-  components: {
-    ShuffleText
-  },
-  data(){
-    return{
-      text: 'welcome', // 表示するテキストを指定
-      time: 20, // テキストを表示する速度を調整
-      random: 'ABCDEFGHIJKLMNOPQRSTUVWXYG01234566789', // シャカシャカする文字を指定
-      empty: '-' // シャカシャカする前に表示する文字を指定
-    }
-  }
-}
-```
-```html
-<templeate>
-  <div id="app">
-    <shuffle-text
-      :original-text="text"
-      :time-out="time"
-      :random-chars="random"
-      :empty-char="empty"
-    />
+    <shuffle-text />
   </div>
 </templeate>
 ```
 
-### License
-MIT © [ivgtr](https://github.com/ivgtr)
+#### React
+- `npm i shuffle-text-c` を実行してください
+- 次のようにloaderを呼び出してください
+```jsx
+import { applyPolyfills, defineCustomElements } from 'shuffle-text-c/loader'
+
+applyPolyfills().then(() => {
+  defineCustomElements()
+});
+
+export default function App() {
+  return (
+    <div className="App">
+       <shuffle-text />
+    </div>
+  );
+}
+
+```
+
+
+### 追加の設定
+| Property      | Attribute      | Description | Type              | Default                                     |
+| ------------- | -------------- | ----------- | ----------------- | ------------------------------------------- |
+| `emptyChars`  | `empty-chars`  | 空白を埋める文字 | `string`          | `'-'`                                       |
+| `mode`        | `mode`         |  アニメーションのモード | `"hover" | "in"` | `'in'`                                      |
+| `openTime`    | `open-time`    | 実際の文字が挿入されるまでの時間 | `number`          | `1000`                                      |
+| `randomChars` | `random-chars` | ランダムに挿入される文字 | `string`          | `'ABCDEFGHIJKLMNOPQRSTUVWXYZ?!#$%&()=~-\|'` |
+| `text`        | `text`         | 実際の文字 | `string`          | `'Hello World!'`                            |
+| `timeOut`     | `time-out`     | 1シャカシャカの時間 | `number`          | `10`                                        |
+
+
+----------------------------------------------
+
+## License
+MIT ©[ivgtr](https://github.com/ivgtr)
+
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/mawaru_hana?style=social)](https://twitter.com/mawaru_hana) [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![Donate](https://img.shields.io/badge/%EF%BC%84-support-green.svg?style=flat-square)](https://www.buymeacoffee.com/ivgtr)  
