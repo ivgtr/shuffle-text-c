@@ -8,9 +8,6 @@ export const config: Config = {
       type: 'dist'
     },
     {
-      type: 'www'
-    },
-    {
       type: 'docs-readme'
     }
   ]
