@@ -63,14 +63,14 @@ export default function App() {
 
 
 ### 追加の設定
-| Property      | Attribute      | Description | Type              | Default                                     |
-| ------------- | -------------- | ----------- | ----------------- | ------------------------------------------- |
-| `emptyChars`  | `empty-chars`  | 空白を埋める文字 | `string`          | `'-'`                                       |
-| `mode`        | `mode`         |  アニメーションのモード | `"hover" | "in"` | `'in'`                                      |
-| `openTime`    | `open-time`    | 実際の文字が挿入されるまでの時間 | `number`          | `1000`                                      |
-| `randomChars` | `random-chars` | ランダムに挿入される文字 | `string`          | `'ABCDEFGHIJKLMNOPQRSTUVWXYZ?!#$%&()=~-\|'` |
-| `text`        | `text`         | 実際の文字 | `string`          | `'Hello World!'`                            |
-| `timeOut`     | `time-out`     | 1シャカシャカの時間 | `number`          | `10`                                        |
+| Property      | Attribute      | Description                  | Type              | Default                                     |
+| ------------- | -------------- | ---------------------------- | ----------------- | ------------------------------------------- |
+| `emptyChars`  | `empty-chars`  | 空白を埋める文字                | `string`          | `'-'`                                       |
+| `mode`        | `mode`         | アニメーションのモード           | `"hover" \| "in"` | `'in'`                                      |
+| `openTime`    | `open-time`    | 実際の文字が挿入されるまでの時間   | `number`          | `1000`                                      |
+| `randomChars` | `random-chars` | ランダムに挿入される文字         | `string`          | `'ABCDEFGHIJKLMNOPQRSTUVWXYZ?!#$%&()=~-\|'` |
+| `text`        | `text`         | 実際の文字                     | `string`          | `'Hello World!'`                            |
+| `timeOut`     | `time-out`     | 1シャカシャカの時間             | `number`          | `10`                                        |
 
 
 ----------------------------------------------
