@@ -5,10 +5,9 @@ import { Component, Prop, State, Watch, Element, h } from '@stencil/core' // esl
   tag: 'shuffle-text'
 })
 export class ShuffleText {
-  @Prop() text: string =
-    'Hello World! Hello World! Hello World! Hello World! Hello World! Hello World!'
+  @Prop() text: string = 'Hello World!'
   @Prop() emptyChars: string = '-'
-  @Prop() randomChars: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890?!#$%&'()0=~-|"
+  @Prop() randomChars: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ?!#$%&()=~-|'
   @Prop() timeOut: number = 10
   @Prop() openTime: number = 1000
   @Prop() mode: 'in' | 'hover' = 'in'
