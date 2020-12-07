@@ -2,20 +2,13 @@ import type { Config } from '@stencil/core'
 
 export const config: Config = {
   namespace: 'shuffle-text',
+  taskQueue: 'async',
   outputTargets: [
     {
-      type: 'dist',
-      esmLoaderPath: '../loader'
-    },
-    {
-      type: 'dist-custom-elements-bundle'
+      type: 'dist'
     },
     {
       type: 'docs-readme'
-    },
-    {
-      type: 'www',
-      serviceWorker: null // disable service workers
     }
   ]
 }
