@@ -4,10 +4,51 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Shuffle Text Components</title>
-
     <script type="module" src="https://unpkg.com/shuffle-text-c/dist/esm/shuffle-text.js"></script>
+    <style>
+        html,body{
+          margin: 0;
+        }
+        body {
+          display: grid;
+          align-items: center;
+          justify-items: center;
+          min-height: -webkit-fill-available;
+          width: 100%;
+          min-height: 100vh;
+          background-color: rgb(31, 41, 55);
+        }
+ 
+        #root{
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+        }
+
+        #root > div {
+          width: 320px;
+        }
+        #root > div > p {
+          color: white;
+          height: 20px;
+        }
+        #root > div > p:nth-child(1) {
+          font-size: 21px;
+          font-weight: bold;
+        }
+    </style>
   </head>
   <body>
-    <shuffle-text text="Hello world!" />
+    <div id="root">
+      <div>
+        <p><shuffle-text text="Hello world!" /></p>
+        <p>mode: in</p>
+      </div>
+      <div>
+        <p><shuffle-text text="Hello world!" mode="hover" /></p>
+        <p>mode: hover</p>
+      </div>
+    </div>
   </body>
 </html>
