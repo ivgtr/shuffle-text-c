@@ -1,6 +1,6 @@
 {
   "name": "shuffle-text-c",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Shuffle Text Components used anywhere.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
