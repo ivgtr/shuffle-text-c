@@ -20,9 +20,10 @@
 - 任意の場所で`<shuffle-text />` を呼び出してください
 
 #### Vue
-- `npm i shuffle-text-c` を実行してください
+- `npm i shuffle-text-c --save` を実行してください
 - 次のようにloaderを呼び出してください
-```javascript
+```vue
+<script>
 import { applyPolyfills, defineCustomElements } from 'shuffle-text-c/loader'
 
 applyPolyfills().then(() => {
@@ -32,8 +33,9 @@ applyPolyfills().then(() => {
 export default {
   name: "App"
 }
+</script>
 ```
-```html
+```js
 <templeate>
   <div id="app">
     <shuffle-text />
@@ -42,7 +44,7 @@ export default {
 ```
 
 #### React
-- `npm i shuffle-text-c` を実行してください
+- `npm i shuffle-text-c --save` を実行してください
 - 次のようにloaderを呼び出してください
 ```jsx
 import { applyPolyfills, defineCustomElements } from 'shuffle-text-c/loader'
@@ -65,8 +67,8 @@ export default function App() {
 ### 追加の設定
 | Property      | Attribute      | Description                  | Type              | Default                                     |
 | ------------- | -------------- | ---------------------------- | ----------------- | ------------------------------------------- |
-| `emptyChars`  | `empty-chars`  | 空白を埋める文字                | `string`          | `'-'`                                       |
-| `mode`        | `mode`         | アニメーションのモード           | `"hover" \| "in"` | `'in'`                                      |
+| `emptyChars`  | `empty-chars`  | 最初に空白を埋める文字           | `string`          | `'-'`                                       |
+| `mode`        | `mode`         | アニメーションの種類             | `"hover" \| "in"` | `'in'`                                      |
 | `openTime`    | `open-time`    | 実際の文字が挿入されるまでの時間   | `number`          | `1000`                                      |
 | `randomChars` | `random-chars` | ランダムに挿入される文字         | `string`          | `'ABCDEFGHIJKLMNOPQRSTUVWXYZ?!#$%&()=~-\|'` |
 | `text`        | `text`         | 実際の文字                     | `string`          | `'Hello World!'`                            |
