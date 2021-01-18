@@ -5,7 +5,8 @@ export const config: Config = {
   taskQueue: 'async',
   outputTargets: [
     {
-      type: 'dist'
+      type: 'dist',
+      esmLoaderPath: '../loader'
     },
     {
       type: 'docs-readme'
