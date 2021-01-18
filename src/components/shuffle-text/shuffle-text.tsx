@@ -1,5 +1,4 @@
-import { Component, Prop, State, Watch, Element, h } from '@stencil/core' // eslint-disable-line no-unused-vars, @typescript-eslint/no-unused-vars
-// import { format } from '../../utils/utils'
+import { Component, Prop, State, Watch, Element, h } from '@stencil/core'
 
 @Component({
   tag: 'shuffle-text'
@@ -98,6 +97,6 @@ export class ShuffleText {
     }
   }
   protected render() {
-    return <span>{this.outputText}</span>
+    return h(<span>{this.outputText}</span>)
   }
 }
