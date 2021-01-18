@@ -1,7 +1,11 @@
-# shuffle-text-c
- 
-テキストをシャカシャカさせるコンポーネント  
-とても簡単に使うことができます
+<div align="center">
+  <h3 align="center">shuffle-text-c</h3>
+  <p align="center">A component that allows you to shuffle text, by simply set a tag.</p>
+  <p><a href="https://github.com/ivgtr/shuffle-text-c/blob/master/docs/README_ja.md" >日本語</a> | ENGLISH</p>
+</div>
+
+---
+
 ```html
 <script
   src="https://unpkg.com/shuffle-text-c/dist/esm/shuffle-text.js"
@@ -11,17 +15,18 @@
 <shuffle-text text="Hello world!" />
 ```
 
-### デモ
+### Demo
 [demo](https://ivgtr.github.io/shuffle-text-c/)	
 
-### 使い方
+### Usages
 #### Script tag
-- `<script src="https://unpkg.com/shuffle-text-c/dist/esm/shuffle-text.js" type="module"></script>` このようなscriptタグを設置します
-- 任意の場所で`<shuffle-text />` を呼び出してください
+- Set a script tag like this.
+`<script src="https://unpkg.com/shuffle-text-c/dist/esm/shuffle-text.js" type="module"></script>`
+- Call `<shuffle-text />` at any place.
 
 #### Vue
-- `npm i shuffle-text-c --save` を実行してください
-- 次のようにloaderを呼び出してください
+- Install it with `npm i shuffle-text-c --save`
+- Call the loader as follows.
 ```vue
 <script>
 import { applyPolyfills, defineCustomElements } from 'shuffle-text-c/loader'
@@ -44,8 +49,8 @@ export default {
 ```
 
 #### React
-- `npm i shuffle-text-c --save` を実行してください
-- 次のようにloaderを呼び出してください
+- Install it with `npm i shuffle-text-c --save`
+- Call the loader as follows
 ```jsx
 import { applyPolyfills, defineCustomElements } from 'shuffle-text-c/loader'
 
@@ -64,15 +69,15 @@ export default function App() {
 ```
 
 
-### 追加の設定
+### Configs
 | Property      | Attribute      | Description                  | Type              | Default                                     |
 | ------------- | -------------- | ---------------------------- | ----------------- | ------------------------------------------- |
-| `emptyChars`  | `empty-chars`  | 最初に空白を埋める文字           | `string`          | `'-'`                                       |
-| `mode`        | `mode`         | アニメーションの種類             | `"hover" \| "in"` | `'in'`                                      |
-| `openTime`    | `open-time`    | 実際の文字が挿入されるまでの時間   | `number`          | `1000`                                      |
-| `randomChars` | `random-chars` | ランダムに挿入される文字         | `string`          | `'ABCDEFGHIJKLMNOPQRSTUVWXYZ?!#$%&()=~-\|'` |
-| `text`        | `text`         | 実際の文字                     | `string`          | `'Hello World!'`                            |
-| `timeOut`     | `time-out`     | 1シャカシャカの時間             | `number`          | `10`                                        |
+| `emptyChars`  | `empty-chars`  | Fill-in-the-blank character           | `string`          | `'-'`                                       |
+| `mode`        | `mode`         | Animation mode             | `"hover" \| "in"` | `'in'`                                      |
+| `openTime`    | `open-time`    | The time it takes for text to be inserted.   | `number`          | `1000`                                      |
+| `randomChars` | `random-chars` | Randomly inserted characters         | `string`          | `'ABCDEFGHIJKLMNOPQRSTUVWXYZ?!#$%&()=~-\|'` |
+| `text`        | `text`         | Text                     | `string`          | `'Hello World!'`                            |
+| `timeOut`     | `time-out`     | One shuffle time             | `number`          | `10`                                        |
 
 
 ----------------------------------------------
