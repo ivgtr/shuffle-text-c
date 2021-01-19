@@ -86,17 +86,16 @@ export class ShuffleText {
     this.init()
   }
   protected componentDidLoad() {
+    this.myReq = requestAnimationFrame(this.update.bind(this))
+
     if (this.mode === 'hover') {
-      this.outputText = this.text
       this.myElement.querySelector('span').addEventListener('mouseover', () => {
         this.init()
         this.myReq = requestAnimationFrame(this.update.bind(this))
       })
-    } else if (this.mode === 'in') {
-      this.myReq = requestAnimationFrame(this.update.bind(this))
     }
   }
-  protected render() {
-    return h(<span>{this.outputText}</span>)
+  protected render(): typeof h {
+    return <span>{this.outputText}</span>
   }
 }
