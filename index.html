@@ -2,54 +2,105 @@
 <html dir="ltr" lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
     <title>Shuffle Text Components</title>
     <!-- <script type="module" src="./dist/shuffle-text/shuffle-text.esm.js"></script> -->
     <script type="module" src="https://unpkg.com/shuffle-text-c/dist/esm/shuffle-text.js"></script>
     <style>
-        html,body{
-          margin: 0;
-        }
-        body {
-          display: grid;
-          align-items: center;
-          justify-items: center;
-          min-height: -webkit-fill-available;
-          width: 100%;
-          min-height: 100vh;
-          background-color: rgb(31, 41, 55);
-        }
- 
-        #root{
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: center;
-        }
+      html,
+      body {
+        margin: 0;
+      }
+      body {
+        width: 100%;
+        background-color: rgb(31, 41, 55);
+        color: white;
+      }
 
-        #root > div {
-          width: 320px;
+      #root {
+        display: flex;
+        flex-direction: column;
+        max-width: 720px;
+        min-height: 100vh;
+        margin: 0 auto;
+      }
+
+      .container {
+        flex: 1;
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 1px;
+      }
+
+      .container > div {
+        display: block;
+        width: 320px;
+      }
+
+      .container > div > p:nth-child(1) {
+        height: 20px;
+        font-size: 21px;
+        font-weight: bold;
+      }
+
+      h1,
+      footer {
+        display: block;
+        flex-shrink: 0;
+      }
+
+      footer {
+        text-align: center;
+      }
+
+      @supports (-webkit-touch-callout: none) {
+        #root {
+          min-height: -webkit-fill-available;
         }
-        #root > div > p {
-          color: white;
-          height: 20px;
-        }
-        #root > div > p:nth-child(1) {
-          font-size: 21px;
-          font-weight: bold;
-        }
+      }
     </style>
   </head>
   <body>
     <div id="root">
-      <div>
-        <p><shuffle-text text="Hello world!" /></p>
-        <p>mode: in</p>
+      <h1>Shuffle Text Components sample</h1>
+      <div class="container">
+        <div>
+          <p><shuffle-text text="Hello world!" /></p>
+          <p>normal</p>
+        </div>
+        <div>
+          <p><shuffle-text text="Hello world!" hover /></p>
+          <p>hover: true</p>
+        </div>
+        <div>
+          <p><shuffle-text text="Hello world!" open-time="2000" /></p>
+          <p>openTime: 2000</p>
+        </div>
+        <div>
+          <p><shuffle-text text="Hello world!" empty-chars="🎉" /></p>
+          <p>emptyChars: 🎉</p>
+        </div>
       </div>
-      <div>
-        <p><shuffle-text text="Hello world!" mode="hover" /></p>
-        <p>mode: hover</p>
-      </div>
+      <footer>
+        <p>
+          Please contanct
+          <a
+            href="https://github.com/ivgtr/shuffle-text-c"
+            target="_brank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+          or
+          <a href="https://twitter.com/ivgtr" target="_brank" rel="noopener noreferrer">Twitter</a>.
+        </p>
+      </footer>
     </div>
   </body>
 </html>
