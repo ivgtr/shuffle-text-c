@@ -20,7 +20,8 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "lint": "eslint --fix"
+    "lint": "eslint --fix",
+    "proxy": "ngrok http 3333"
   },
   "dependencies": {
     "@stencil/core": "^2.6.0"
