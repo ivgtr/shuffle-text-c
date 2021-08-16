@@ -1,8 +1,15 @@
 {
-  "extends": ["eslint-config-sumikko", "eslint-config-sumikko/node", "eslint-config-sumikko/ts", "eslint-config-sumikko/prettier"],
+  "extends": [
+    "eslint-config-sumikko",
+    "eslint-config-sumikko/node",
+    "eslint-config-sumikko/module",
+    "eslint-config-sumikko/ts",
+    "eslint-config-sumikko/prettier"
+  ],
   "rules": {
     "no-unused-vars": [
-      "error", {
+      "error",
+      {
         "argsIgnorePattern": "^h"
       }
     ]
