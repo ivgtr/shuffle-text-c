@@ -1,101 +1,102 @@
-import { Component, Prop, State, Watch, Element, h } from '@stencil/core'
+import { Component, Element, h, Prop, State, Watch } from "@stencil/core";
 
 @Component({
-  tag: 'shuffle-text'
+  tag: "shuffle-text",
 })
 export class ShuffleText {
-  @Prop() text: string = 'Hello World!'
-  @Prop() emptyChars: string = '-'
-  @Prop() randomChars: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ?!#$%&()=~-|'
-  @Prop() timeOut: number = 10
-  @Prop() openTime: number = 1000
-  @Prop() mode: 'in' | 'hover' = 'in'
+  @Prop() text: string;
+  @Prop() emptyChars: string = "-";
+  @Prop() randomChars: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ?!#$%&()=~-|";
+  @Prop() timeOut: number = 10;
+  @Prop() openTime: number = 1000;
+  @Prop() hover: boolean = false;
 
-  @State() myReq: number
-  @State() _text: string = ''
-  @State() outputText: string = ''
-  @State() initTime: number = 0
-  @State() startTime: number = 0
-  @State() originalLength: number = 0
-  @State() shuffleLength: number = 0
-  @State() outputLength: number = 0
+  @State() myRequestAnimationFrame: ReturnType<typeof requestAnimationFrame> | undefined;
+  @State() myTimer: ReturnType<typeof setTimeout> | undefined;
+  @State() rawText: string = "";
+  @State() outputText: string = "";
+  @State() initTime: number = 0;
+  @State() startTime: number = 0;
+  @State() originalLength: number = 0;
+  @State() shuffleLength: number = 0;
+  @State() outputLength: number = 0;
 
-  @State() Element: HTMLElement
-  @Element() myElement: HTMLElement
+  @State() Element: HTMLElement;
+  @Element() myElement: HTMLElement;
 
   private init(): void {
-    cancelAnimationFrame(this.myReq)
-    this._text = ''
-    this.outputText = ''
-    this.initTime = new Date().getTime()
-    this.startTime = this.initTime
-    this.originalLength = this.text.length
-    this.shuffleLength = 0
-    this.outputLength = 0
+    clearTimeout(this.myTimer);
+    cancelAnimationFrame(this.myRequestAnimationFrame);
+    this.rawText = "";
+    this.outputText = "";
+    this.initTime = new Date().getTime();
+    this.startTime = this.initTime;
+    this.originalLength = this.text.length;
+    this.shuffleLength = 0;
+    this.outputLength = 0;
   }
 
   private generateRandomChars(l: number): string {
-    let randomText = ''
+    let randomText = "";
     for (let i = 0; i < l; i++) {
-      randomText += this.randomChars[Math.floor(Math.random() * this.randomChars.length)]
+      randomText += this.randomChars[Math.floor(Math.random() * this.randomChars.length)];
     }
-    return randomText
+    return randomText;
   }
 
   private update() {
-    if (this._text.length > this.originalLength) {
-      return
+    if (this.rawText.length > this.originalLength) {
+      return;
     }
-    const currentTime = new Date().getTime()
+    const currentTime = new Date().getTime();
     if (currentTime - this.startTime > this.timeOut) {
-      this.startTime = currentTime
+      this.startTime = currentTime;
 
-      if (this._text.length < this.originalLength) {
-        this._text += '-'
+      if (this.rawText.length < this.originalLength) {
+        this.rawText += this.emptyChars;
       }
 
-      this._text =
-        this.generateRandomChars(this.shuffleLength) + this._text.slice(this.shuffleLength)
+      this.rawText =
+        this.generateRandomChars(this.shuffleLength) + this.rawText.slice(this.shuffleLength);
 
-      if (this.shuffleLength < this.originalLength) this.shuffleLength++
+      if (this.shuffleLength < this.originalLength && this.rawText.length > 2) this.shuffleLength++;
 
       if (currentTime - this.initTime > this.openTime) {
-        this._text = this.text.slice(0, this.outputLength) + this._text.slice(this.outputLength)
-        this.outputLength++
+        this.rawText =
+          this.text.slice(0, this.outputLength) + this.rawText.slice(this.outputLength);
+        this.outputLength++;
       }
     }
 
-    this.outputText = this._text
+    this.outputText = this.rawText;
 
-    this.myReq = requestAnimationFrame(this.update.bind(this))
+    this.myRequestAnimationFrame = requestAnimationFrame(this.update.bind(this));
   }
 
-  @Watch('text')
+  private start(): void {
+    this.myTimer = setTimeout(this.update.bind(this), 100);
+  }
+
+  @Watch("text")
   protected reboot(): void {
-    this.init()
-    this.myReq = requestAnimationFrame(this.update.bind(this))
-    if (this.mode === 'hover') {
-      this.myElement.querySelector('span').addEventListener('mouseover', () => {
-        this.init()
-        this.myReq = requestAnimationFrame(this.update.bind(this))
-      })
-    }
+    this.init();
+    this.start();
   }
 
   protected componentWillLoad(): void {
-    this.init()
+    this.init();
+    this.start();
   }
-  protected componentDidLoad() {
-    this.myReq = requestAnimationFrame(this.update.bind(this))
-
-    if (this.mode === 'hover') {
-      this.myElement.querySelector('span').addEventListener('mouseover', () => {
-        this.init()
-        this.myReq = requestAnimationFrame(this.update.bind(this))
-      })
+  protected componentDidLoad(): void {
+    if (this.hover) {
+      this.myElement.querySelector("span").addEventListener("mouseover", () => {
+        this.init();
+        this.myRequestAnimationFrame = requestAnimationFrame(this.update.bind(this));
+      });
     }
   }
+
   protected render(): typeof h {
-    return <span>{this.outputText}</span>
+    return <span>{this.outputText}</span>;
   }
 }

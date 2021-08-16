@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface ShuffleText {
         "emptyChars": string;
-        "mode": 'in' | 'hover';
+        "hover": boolean;
         "openTime": number;
         "randomChars": string;
         "text": string;
@@ -29,7 +29,7 @@ declare global {
 declare namespace LocalJSX {
     interface ShuffleText {
         "emptyChars"?: string;
-        "mode"?: 'in' | 'hover';
+        "hover"?: boolean;
         "openTime"?: number;
         "randomChars"?: string;
         "text"?: string;
