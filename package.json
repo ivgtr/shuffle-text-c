@@ -11,8 +11,9 @@
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/shuffle-text/shuffle-text.js",
   "files": [
-    "dist/",
-    "loader/"
+    "dist",
+    "loader",
+    "docs"
   ],
   "scripts": {
     "build": "stencil build --docs",
