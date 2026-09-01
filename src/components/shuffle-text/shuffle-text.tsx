@@ -96,7 +96,7 @@ export class ShuffleText {
     }
   }
 
-  protected render(): typeof h {
+  protected render() {
     return <span>{this.outputText}</span>;
   }
 }
